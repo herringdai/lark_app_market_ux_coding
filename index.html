@@ -1,0 +1,2306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞书应用市场</title>
+    <style>
+        .floating-image-container {
+            position: absolute;
+            top: 49px;
+            left: 31%;
+            z-index: 1000;
+            width: auto; /* Adjust as needed */
+            height: auto; /* Adjust as needed */
+        }
+
+        .floating-image-container img {
+            max-width: 50%; /* Ensures the image is responsive within its container */
+            height: auto;
+            display: block; /* Removes extra space below the image */
+        }
+
+        .atmosphere-icon-container {
+            position: absolute;
+            top: 49px;
+            left: 28%;
+            z-index: 1001;
+            width: auto; /* Adjust as needed, or set specific dimensions */
+            height: auto; /* Adjust as needed, or set specific dimensions */
+        }
+
+        .atmosphere-icon-container img {
+            max-width: 35%; /* Ensures the image is responsive within its container */
+            height: auto;
+            display: block; /* Removes extra space below the image */
+        }
+
+        .atmosphere-icon-container-03 {
+    position: absolute;
+    top: 110px;
+    left: 34%;
+    z-index: 1002;
+    width: auto;
+    height: auto;
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg);
+    transition: 
+        opacity 0.2s ease-in-out , 
+        transform 0.2s ease-in-out ;
+}
+
+        .atmosphere-icon-container-03 img {
+            max-width: 34%;
+            height: auto;
+            display: block;
+        }
+
+        .atmosphere-icon-container-06 {
+            position: absolute;
+            top: 70px;
+            right: 30%; /* Changed from left to right */
+            z-index: 1003;
+            width: auto;
+            height: auto;
+            opacity: 0;
+            transform: translate(0,0) rotate(0deg);
+            transition:  
+            opacity 0.2s ease-in-out 0.05s, 
+            transform 0.2s ease-in-out 0.05s;
+        }
+
+        .atmosphere-icon-container-06 img {
+            max-width: 34%;
+            height: auto;
+            display: block;
+        }
+
+        .atmosphere-icon-container-04 {
+            position: absolute;
+            top: 71px;
+            right: 22%;
+            z-index: 1004;
+            width: auto;
+            height: auto;
+            opacity: 0;
+            transform: translate(0,0) rotate(0deg);
+            transition:  opacity 0.2s ease-in-out 0.1s, 
+            transform 0.2s ease-in-out 0.1s;
+        }
+
+        .atmosphere-icon-container-04 img {
+            max-width: 34%;
+            height: auto;
+            display: block;
+        }
+
+        .atmosphere-icon-container-05 {
+            position: absolute;
+            top: 126px;
+            right: 26%;
+            z-index: 1005;
+            width: auto;
+            height: auto;
+            opacity: 0;
+            transform: translate(0,0) rotate(0deg);
+            transition:  opacity 0.2s ease-in-out , 
+            transform 0.2s ease-in-out ;
+        }
+
+        .atmosphere-icon-container-05 img {
+            max-width: 34%;
+            height: auto;
+            display: block;
+        }
+
+        .atmosphere-icon-container-01 {
+            position: absolute;
+            top: 50px; 
+            left: 30.5%; 
+            z-index: 1001; 
+            width: auto;
+            height: auto;
+            opacity: 0;
+            transform: translate(0,0) rotate(0deg);
+            transition:  opacity 0.2s ease-in-out 0.05s, 
+            transform 0.2s ease-in-out 0.05s;
+        }
+
+        .atmosphere-icon-container-01 img {
+            max-width: 34%;
+            height: auto;
+            display: block;
+        }
+
+        .atmosphere-icon-container-02 {
+            position: absolute;
+            top: 47px;
+            left: 38%;
+            z-index: 1006; /* Higher than other atmosphere icons */
+            width: auto;
+            height: auto;
+            opacity: 0;
+            transform: translate(0,0) rotate(0deg);
+            transition:  opacity 0.2s ease-in-out 0.1s, 
+            transform 0.2s ease-in-out 0.1s;
+        }
+
+        .atmosphere-icon-container-02 img {
+            max-width: 34%;
+            height: auto;
+            display: block;
+        }
+
+        .app-hover-image-container {
+            position: absolute;
+            top: 138px;
+            left: 49.7%;
+            z-index: 1010; /* Ensure it's on top of other atmosphere icons */
+            width: auto;
+            height: auto;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s ease-in-out; /* Fade-in transition */
+        }
+
+        .app-hover-image-container img {
+            max-width: 50%; /* Adjust as needed, assuming the image itself has a defined size or you want it to be responsive */
+            height: auto;
+            display: block;
+        }
+
+        .solution-hover-image-container {
+            position: absolute;
+              top: 138px;
+            left: 54.23%;
+            
+            z-index: 1008; /* Ensure it's on top of other elements */
+            width:  auto;
+            height: auto;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s ease-in-out; /* Fade-in transition */
+        }
+
+        .solution-hover-image-container img {
+            max-width: 50%; /* Adjust as needed, assuming the image itself has a defined size or you want it to be responsive */
+            height: auto;
+            display: block;
+        }
+
+        .new-solution-atmosphere-container {
+            position: absolute;
+            top: 64px;
+            left: 31.5%;
+            z-index: 1009; /* Higher than solution-hover-image-container */
+            width: auto;
+            height: auto;
+            opacity: 0;
+            transform: translate(0px, 0px) rotate(0deg);
+            transition: opacity 0.2s ease-in-out 0.07s, transform 0.2s ease-in-out 0.07s;
+        }
+
+        .new-solution-atmosphere-container img {
+            max-width: 48%; /* Adjust as needed */
+            height: auto;
+            display: block;
+        }
+
+        .solution-03-atmosphere-container {
+            position: absolute;
+            top: 70px;
+            right: 21.8%;
+            z-index: 1010; /* Higher than other elements */
+            width: auto;
+            height: auto;
+            opacity: 0;
+            transform: translate(0px, 0px) rotate(0deg);
+            transition: opacity 0.2s ease-in-out 0.05s, transform 0.2s ease-in-out 0.05s;
+        }
+
+        .solution-03-atmosphere-container img {
+            max-width: 50%; /* Adjust as needed */
+            height: auto;
+            display: block;
+        }
+
+        .solution01-atmosphere-new-container {
+            position: absolute;
+            top: 37px;
+            right: 33%; /* 容器的右边缘距离屏幕右边缘50% */
+            z-index: 2000; /* 设置一个较高的z-index以确保在顶层显示 */
+            width: auto;   /* 容器宽度自动适应内容 */
+            height: auto;  /* 容器高度自动适应内容 */
+            opacity: 0;
+            transform: translate(0px, 0px) rotate(0deg);
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .solution01-atmosphere-new-container img {
+            display: block; /* 移除图片下方的额外空白 */
+            max-width: 53%; /* 图片最大宽度为容器宽度 */
+            height: auto;    /* 图片高度自动调整 */
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #ffffff;
+            background-image: url('./首页初始化 UI图 燥点背景.png');
+            background-size: 100% auto;
+            background-position: top;
+            background-repeat: no-repeat;
+            color: #333;
+            line-height: 1.5;
+            position: relative;
+            z-index: 0;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            height: 64px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header.scrolled {
+            background-color: white !important;
+            border-bottom: 0.5px solid #E6E6E6;
+            
+        }
+        
+        .logo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 24px;
+        }
+        
+        .logo img {
+            height: 64px;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            height: 64px;
+            align-items: center;
+            margin-left: 40px;
+        }
+        
+        .nav-item {
+            padding: 0 19px;
+            cursor: pointer;
+            position: relative;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-item.active {
+            color: #1a73e8;
+            font-weight: bold;
+        }
+        
+        
+        
+        .nav-item.active span {
+            position: relative;
+        }
+        
+        .nav-item.active span::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #1a73e8;
+        }
+        
+        .nav-item.new::after {
+            content: '新品';
+            position: absolute;
+            top: 8px;
+            right: -13px;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 5px;
+            background-image: linear-gradient(to right, #747CF0, #5B65F5);
+            color: white;
+            border-radius: 6px 6px 6px 2px;
+        }
+        
+        .user-actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            padding-right: 0;
+            height: 64px;
+            margin-left: auto;
+            flex: 1;
+            min-width: fit-content;
+        }
+        
+        .container {
+            max-width: 1368px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero {
+            text-align: center;
+            margin: 42px 0;
+        }
+        
+        .hero h1 {
+            font-size: 27px;
+            margin-bottom: 20px;
+            display: inline-block;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+    width: 16px;
+    height: 1px;
+    background-color: #3089FF;
+    animation: blink 0.98s infinite;
+    margin-left: 3px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    vertical-align: bottom;
+    border-radius: 1px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .hero h1 span {
+            font-size: 27px;
+        }
+
+        #app-text-target-wrapper {
+            display: inline; 
+        }
+
+        #app-text-target {
+            position: relative; 
+        }
+
+        .app-hover-area {
+            position: absolute;
+            cursor: pointer;
+            z-index: 10; 
+        }
+
+        .animated-icons-container {
+            position: absolute; 
+            width: 0;
+            height: 0;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            pointer-events: none; 
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .animated-icons-container.visible {
+            opacity: 1;
+        }
+
+        .animated-icon {
+            position: absolute;
+            width: 50px; 
+            height: 50px; 
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5) rotate(0deg); 
+            transition: opacity 0.4s ease-out, transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
+        }
+
+        .animated-icons-container.visible .animated-icon.left-1 { transition-delay: 0s; }
+        .animated-icons-container.visible .animated-icon.left-2 { transition-delay: 0.05s; } /* Adjusted delay slightly */
+        .animated-icons-container.visible .animated-icon.left-3 { transition-delay: 0.1s; }
+        .animated-icons-container.visible .animated-icon.right-1 { transition-delay: 0s; }
+        .animated-icons-container.visible .animated-icon.right-2 { transition-delay: 0.05s; } /* Adjusted delay slightly */
+        .animated-icons-container.visible .animated-icon.right-3 { transition-delay: 0.1s; }
+
+
+        .hero-gradient-text {
+            background-image: linear-gradient(to bottom right, #386CFF 0%, #2F8FFF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 13px 20px 13px 40px;
+            border: 0.5px solid #ddd;
+            border-radius: 24px;
+            font-size: 15px;
+            outline: none;
+            box-shadow: 0px 10px 18px 6px rgba(55, 43, 165, 0.04);
+        }
+
+        .search-bar input:focus {
+            border-color: #1456F0;
+        }
+        .search-bar input::placeholder {
+            color: #8F959E;
+        }
+        
+        .search-bar::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background-image: url('./icon_search_outlined.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .feature-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+    flex: 1;
+    background-color: #e8f0fe;
+    color: #214294;
+    border-radius: 12px;
+    padding: 29px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: right top;
+    z-index: 1;
+    cursor: pointer; /* 添加手型鼠标指针 */
+}
+
+.feature-card:nth-child(1)::before {
+    background-image: url('./banner01.png');
+}
+
+.feature-card:nth-child(2), .feature-card:nth-child(2)::before {
+    cursor: pointer;
+}
+
+.feature-card:nth-child(2)::before {
+    background-image: url('./banner02.png');
+}
+
+.feature-card:hover::before {
+    transform: scale(1.08);
+}
+
+.feature-card > * {
+    position: relative;
+    z-index: 2;
+}
+        
+        .feature-card h3 {
+            font-size: 18px;
+            color: #3d6497;
+        }
+
+        .feature-card:nth-child(1) h3,
+        .feature-card:nth-child(2) h3 {
+            font-size: 20px !important;
+            letter-spacing: 0.05em;
+        }
+        
+        .feature-card p {
+            font-size: 13px;
+            font-weight: 400;
+            color: #5A6A8D;
+        }
+        
+        .category-tabs {
+            display: flex;
+            gap: 12px;
+            margin: 20px 0;
+            overflow-x: auto;
+            border-radius: 6px;
+            padding-right: 54px;
+        }
+        
+        .category-tab {
+            padding: 0 15px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            white-space: nowrap;
+            background-color: #F5F6F7;
+            color: #51565D;
+        }
+        
+        .category-tab.active {
+            background-color: #e8f0fe;
+            color: #1456F0;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-header + .section-header {
+            margin-top: 52px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            color: #737880;
+            margin-left: 0px;
+        }
+        
+        .view-all {
+            color: #1456F0;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+        
+        .app-card {
+            cursor: pointer;
+            background-color: white;
+            border-radius: 12px;
+            padding: 21px;
+            box-shadow: 0px 6px 14px -4px rgba(77, 114, 170, 0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+            border: 0.5px solid #DEE0E3;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .app-card:hover {
+            box-shadow: 0px 12px 24px -6px rgba(77, 114, 170, 0.12); /* 加深的阴影效果 */
+        }
+
+        .app-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .app-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 6px;
+        }
+        
+        .app-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .app-icon {
+                margin-right: 20px !important;
+            }
+        }
+        
+        .app-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .app-name {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .app-tags {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .app-tag {
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            font-weight: 500;
+        }
+        
+        .app-tag.blue {
+            background-color: #D6E2FF;
+            color: #245BDB;
+        }
+        
+        .app-tag.purple {
+            background-image: linear-gradient(to right, #AC8049, #A0753F), linear-gradient(to right, #FCE9CB, #F6D9AA);
+            -webkit-background-clip: text, padding-box;
+            background-clip: text, padding-box;
+            color: transparent;
+            font-weight: 500;
+        }
+        
+        .app-description {
+            font-size: 14px;
+            color: #737880;
+            margin-top: -7px;
+            line-height: 24px;
+        }
+        
+        .app-meta {
+            font-size: 13px;
+            color: #8F959E;
+            line-height: 26px;
+        }
+        
+        .app-action {
+            text-align: right;
+        }
+        
+        .app-button {
+            display: inline-block;
+            padding: 5px 12px;
+            background-color: #ffffff;
+            color: #1456F0;
+            border: 0.5px solid #1456F0;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative; /* Needed for pseudo-element positioning */
+            overflow: hidden; /* To contain the pseudo-element */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+        }
+
+        .app-button:hover {
+            background-color: #1456F0; /* Blue background */
+            color: #ffffff; /* White text */
+        }
+
+        .app-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%; /* Start off-screen to the left */
+            width: 75%; /* Width of the light beam */
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.0) 20%, /* Softer edge */
+                rgba(255, 255, 255, 0.3) 50%, /* Brighter center */
+                rgba(255, 255, 255, 0.0) 80%, /* Softer edge */
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: skewX(-25deg); /* Angle of the light beam */
+            transition: none; /* No transition by default */
+            opacity: 0; /* Hidden by default */
+            pointer-events: none; /* Ensure the pseudo-element doesn't interfere with mouse events on the button */
+        }
+
+        .app-button:hover::before {
+            left: 125%; /* Move across and off-screen to the right */
+            opacity: 1; /* Make it visible on hover */
+            transition: left 0.525s ease-in-out, opacity 0.375s ease-in-out; /* Smooth sweep and fade */
+        }
+        
+        .bg-blue {
+            background-color: #4285f4;
+        }
+        
+        .bg-orange {
+            background-color: #fa7b17;
+        }
+        
+        .bg-red {
+            background-color: #ea4335;
+        }
+        
+        .bg-green {
+            background-color: #34a853;
+        }
+        
+        .bg-purple {
+            background-color: #9334e6;
+        }
+        
+        .bg-teal {
+            background-color: #00a9a7;
+        }
+
+        /* Styles from index解决方案模板.html for .card */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+        
+        .card {
+            /* background: linear-gradient(to bottom, #EFF3FF, #F8FAFF); */ /* Original background, now handled by ::before */
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer; /* 添加手型鼠标指针 */
+            position: relative; /* Required for pseudo-elements */
+            overflow: hidden; /* Ensures pseudo-elements are clipped to the card bounds */
+            z-index: 0; /* Context for pseudo-elements, ensures card content can be layered above with z-index */
+        }
+
+        .card > * { /* Ensure card content is above pseudo-elements */
+            position: relative;
+            z-index: 1; /* Higher z-index than pseudo-elements */
+        }
+
+        .card::before,
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit; /* Match card's border-radius */
+            transition: opacity 0.5s ease-in-out;
+            z-index: -1; /* Position behind the card's direct children */
+        }
+
+        .card::before {
+            background: linear-gradient(to bottom, #F2F6FF, #F2F6FF); /* Initial gradient */
+            opacity: 1;
+        }
+
+        .card::after {
+            background: linear-gradient(to bottom, #EBF1FD, #EBF1FD); /* Hover gradient */
+            opacity: 0;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .card-title-container {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: white; 
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .card-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+        
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 22px;
+        }
+        
+        .card-tags {
+            display: flex;
+            gap: 2px;
+            margin-top: 4px;
+        }
+        
+        .tag {
+            background-color: #CBDAFF;
+            color: #245BDB;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 5px;
+            font-weight: 500;
+        }
+
+        .tag.blue {
+            background-color: #e8f0fe;
+            color: #1a73e8;
+        }
+        
+        .tag.purple {
+            background-color: #f3e8fd;
+            color: #9334e6;
+        }
+        
+        .consult-btn {
+            display: inline-block;
+            padding: 5px 12px;
+            background-color: #ffffff;
+            color: #1456F0;
+            border: 0.5px solid #1456F0;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative; /* Needed for pseudo-element positioning */
+            overflow: hidden; /* To contain the pseudo-element */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+            white-space: nowrap; /* Kept from original .consult-btn */
+        }
+
+        .consult-btn:hover {
+            background-color: #1456F0; /* Blue background */
+            color: #ffffff; /* White text */
+        }
+
+        .consult-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%; /* Start off-screen to the left */
+            width: 75%; /* Width of the light beam */
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.0) 20%, /* Softer edge */
+                rgba(255, 255, 255, 0.3) 50%, /* Brighter center */
+                rgba(255, 255, 255, 0.0) 80%, /* Softer edge */
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: skewX(-25deg); /* Angle of the light beam */
+            transition: none; /* No transition by default */
+            opacity: 0; /* Hidden by default */
+            pointer-events: none; /* Ensure the pseudo-element doesn't interfere with mouse events on the button */
+        }
+
+        .consult-btn:hover::before {
+            left: 125%; /* Move across and off-screen to the right */
+            opacity: 1; /* Make it visible on hover */
+            transition: left 0.525s ease-in-out, opacity 0.375s ease-in-out; /* Smooth sweep and fade */
+        }
+        
+        .card-content {
+            font-size: 14px;
+            color: #737880;
+            line-height: 1.6;
+            margin-bottom: 17px;
+            background-color: #ffffff; /* Added from template */
+            padding: 16px; /* Added from template */
+            border-radius: 8px; /* Added from template */
+            transition: background-color 0.3s ease-in-out; /* 添加过渡效果 */
+        }
+
+        .card:hover::before {
+            opacity: 0;
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        /* The old .card:hover rule that directly changed background is no longer needed */
+        /* .card:hover { */
+        /*     background: linear-gradient(to bottom, #E3ECFF, #EAF0FF); */
+        /* } */
+
+
+
+
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #979ca4;
+            margin-top: auto; /* Ensures footer is at the bottom of the card */
+        }
+        
+        .company-logo {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+
+        .blue-bg { background-color: #5b8def; }
+        .red-bg { background-color: #f44336; }
+        .purple-bg { background-color: #7986cb; }
+        .green-bg { background-color: #26c6da; }
+        .orange-bg { background-color: #ffa726; }
+
+        /* Template section styles */
+        .template-item {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center; /* Vertically center all elements */
+            gap: 15px;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 12px;
+            background-color: #fff; /* Added for consistency with .card */
+            cursor: pointer; /* 添加手型鼠标指针 */
+            transition: background-color 0.24s ease; /* Added transition for background color */
+        }
+        
+        .template-item:hover {
+            background-color: #F7F8F8;
+        }
+        
+        .template-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .template-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+        
+        .template-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .template-title {
+            font-size: 16px;
+            font-weight: regular;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .template-description {
+            font-size: 14px;
+            color: #737880;
+            line-height: 1.63;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .template-button {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .template-tag {
+            background-color: #D6E2FF;
+            color: #245BDB;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 5px;
+            font-weight: 500;
+        }
+
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            row-gap: 4px;
+    column-gap: 20px;
+            margin-bottom: 48px;
+        }
+        @keyframes fadeInAnimation {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* 从下方20px处开始，完全透明 */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* 移动到原始位置，完全不透明 */
+            }
+        }
+
+        .fade-in-element {
+            opacity: 0; /* 动画开始前元素不可见 */
+            animation: fadeInAnimation 0.8s ease-out forwards;
+            /* 使用CSS变量来设置动画延迟，可以通过JS动态修改 */
+            animation-delay: var(--animation-delay, 0s);
+        }
+        /* End of styles from index解决方案模板.html */
+
+        /* 新增样式 - 为scene-container添加sticky定位 */
+        .scene-container {
+            position: sticky;
+            top: 64px;
+            z-index: 10;
+            background-color: white;
+            border-radius: 12px;
+            border: 0.5px solid #DEE0E3;
+            box-shadow: 0px 2px 4px -4px rgba(31, 35, 41, 0.02), 0px 4px 8px -4px rgba(31, 35, 41, 0.04);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            margin-bottom: 34px;
+            margin-top: 40px;
+        }
+
+        /* 创建一个伪元素作为白色背景 */
+        .scene-container::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw; /* 与浏览器窗口同宽 */
+            height: 100%;
+            background-color: white;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: none; /* 初始状态没有阴影 */
+        }
+
+        /* 当scene-container到达顶部64px位置时的样式 */
+        .scene-container.at-top {
+            background-color: transparent;
+            border-color: transparent;
+            box-shadow: none;
+        }
+
+        /* 当scene-container到达顶部64px位置时显示白色背景并添加阴影 */
+        .scene-container.at-top::before {
+            opacity: 1;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06); /* 添加轻微的阴影效果 */
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.93);
+        }
+
+        /* 当.scene-container带有.at-top类时调整下方元素margin */
+        .scene-container.at-top div[style*="margin-left: 16px"] {
+            margin-left: 0 !important;
+            transition: margin 0.3s ease;
+        }
+        .scene-container.at-top div[style*="margin-left: 20px"][style*="margin-right: 20px"] {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            transition: margin 0.3s ease;
+        }
+        .floating-image-container {
+            position: fixed;
+            top: 49px;
+            left: 31%;
+            z-index: 9999; /* Ensure it's on top */
+            width: auto; /* Adjust as needed or let image define it */
+            height: auto; /* Adjust as needed or let image define it */
+        }
+
+        .floating-image-container img {
+            display: block;
+            max-width: 50%; /* Optional: makes image responsive within its container */
+            height: auto;    /* Optional: maintains aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div class="atmosphere-icon-container-01" data-icon-id="1"><img src="./氛围icon01.png" alt="Atmosphere Icon 01"></div>
+    <div class="atmosphere-icon-container-02" data-icon-id="2"><img src="./氛围icon02.png" alt="Atmosphere Icon 02"></div>
+    <div class="atmosphere-icon-container-03" data-icon-id="3"><img src="./氛围icon03.png" alt="Atmosphere Icon 03"></div>
+    <div class="atmosphere-icon-container-04" data-icon-id="4"><img src="./氛围icon4.png" alt="Atmosphere Icon 04"></div>
+    <div class="atmosphere-icon-container-05" data-icon-id="5"><img src="./氛围icon5.png" alt="Atmosphere Icon 05"></div>
+    <div class="atmosphere-icon-container-06" data-icon-id="6"><img src="./氛围icon6.png" alt="Atmosphere Icon 06"></div>
+    <div class="solution-03-atmosphere-container">
+        <img src="./解决方案03氛围.png" alt="解决方案03氛围">
+    </div>
+    <div class="atmosphere-icon-container-02">
+        <img src="./氛围icon02.png" alt="氛围图标02">
+    </div>
+    
+    
+    <div class="atmosphere-icon-container">
+      
+    </div>
+    <div class="atmosphere-icon-container-03">
+        <img src="./氛围icon03.png" alt="氛围icon 03">
+    </div>
+    <div class="atmosphere-icon-container-06">
+        <img src="./氛围icon6.png" alt="氛围icon 6">
+    </div>
+    <div class="atmosphere-icon-container-04">
+        <img src="./氛围icon4.png" alt="氛围icon 4">
+    </div>
+    <div class="atmosphere-icon-container-05">
+        <img src="./氛围icon5.png" alt="氛围icon 5">
+    </div>
+    <div class="app-hover-image-container">
+        <img src="./应用 hover.png" alt="应用 hover 图片" id="appHoverTrigger">
+    </div>
+    <div class="solution-hover-image-container">
+        <img src="./解决方案 hover.png" alt="解决方案 hover 图片" id="solutionImageHoverTrigger">
+    </div>
+    <div class="new-solution-atmosphere-container">
+        <img src="./解决方案02氛围.png" alt="解决方案02氛围图">
+    </div>
+      
+    </div>
+    <header class="header">
+        <div class="logo">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20area-L04KlHmmsSf0RJJ6hwZIE3OzBfzdS3.svg" alt="卡乐应用市场 Logo">
+        </div>
+        <div class="nav">
+            <div class="nav-item active">
+                <span>首页</span>
+            </div>
+            <div class="nav-item">
+                <span>应用</span>
+            </div>
+            <div class="nav-item new">
+                <span>解决方案</span>
+            </div>
+            <div class="nav-item">
+                <span>模板</span>
+            </div>
+        </div>
+        <div class="user-actions">
+            <img src="头像和九宫格.png" alt="用户头像和应用菜单" style="height:32px;margin-right:16px;">
+        </div>
+    </header>
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (document.documentElement.scrollTop > 90) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // 新增：检测scene-container是否到达顶部64px位置
+            const sceneContainer = document.querySelector('.scene-container');
+            if (sceneContainer) {
+                const sceneRect = sceneContainer.getBoundingClientRect();
+                if (sceneRect.top <= 64) {
+                    sceneContainer.classList.add('at-top');
+                } else {
+                    sceneContainer.classList.remove('at-top');
+                }
+            }
+        });
+
+        // 打字机效果（动态速度, HTML-aware, CSS-based centering)
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroH1 = document.querySelector('.hero h1');
+            if (!heroH1) {
+                console.error("Hero H1 element not found for typewriter effect.");
+                return;
+            }
+
+            const textPart1 = "发现适合你的 ";
+            const spanText = "应用和解决方案";
+            const fullTextToType = textPart1 + spanText;
+            const totalChars = fullTextToType.length;
+
+            if (totalChars === 0) return; // No text to type
+
+            heroH1.innerHTML = ''; // Clear existing content
+            let charIndex = 0;
+            const cursorSpan = '<span class="typing-cursor"></span>';
+
+            function typeLetter() {
+                const typedSubstring = fullTextToType.substring(0, charIndex + 1);
+                let currentHTML;
+                if (charIndex < textPart1.length) {
+                    currentHTML = typedSubstring;
+                } else {
+                    const spanPartTyped = typedSubstring.substring(textPart1.length);
+                    currentHTML = textPart1 + `<span class="hero-gradient-text">${spanPartTyped}</span>`;
+                }
+                heroH1.innerHTML = currentHTML + cursorSpan;
+
+                if (charIndex >= totalChars - 1) { // Last character typed
+                    // Keep cursor for a bit then remove, or just leave it if preferred
+                    heroH1.innerHTML = textPart1 + `<span class="hero-gradient-text">${spanText}</span>` + cursorSpan;
+                    setTimeout(() => {
+                         // Optionally remove cursor after some time or leave it
+                         heroH1.innerHTML = textPart1 + `<span class="hero-gradient-text">${spanText}</span>`; // Remove cursor after timeout
+                    }, 400); // Keep cursor for 0.4s after typing finishes, then remove cursor
+                    return; // Animation finished
+                }
+
+                charIndex++;
+
+                const progress = charIndex / totalChars;
+                let delay;
+                if (progress < 0.3) { // 前30%
+                    delay = 280 - 215 * progress; // Adjusted for ~1s longer duration
+                } else if (progress < 0.7) { // 中间40%
+                    delay = 100; // Adjusted for ~1s longer duration
+                } else { // 后30%
+                    delay = 100 + 215 * ((progress - 0.7) / 0.3); // Adjusted for ~1s longer duration
+                }
+                
+                setTimeout(typeLetter, delay);
+            }
+
+            typeLetter(); // Start the animation
+        });
+
+        // Removed mousemove listener as it's replaced by CSS hover effect
+        /*
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.app-button');
+            buttons.forEach(button => {
+                button.addEventListener('mousemove', function(e) {
+                    const rect = button.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    button.style.setProperty('--mouse-x', x + 'px');
+                    button.style.setProperty('--mouse-y', y + 'px');
+                });
+            });
+        });
+        */
+    </script>
+
+    <div class="container">
+        <div class="hero">
+            <h1><!-- Text will be populated by JavaScript --></h1>
+            <div id="app-hover-interactive-area" class="app-hover-area"></div>
+            <div class="animated-icons-container" id="animated-icons-container">
+                <!-- Icons will be added here by JavaScript -->
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索消费行业的信息化工具">
+            </div>
+        </div>
+
+        <div class="feature-cards">
+            <div class="feature-card">
+                <h3>数据分析应用集合</h3>
+                <p>从简单与复杂数据中，获取你所需的业务洞察</p>
+            </div>
+            <div class="feature-card">
+                <h3>最受欢迎的CRM工具包</h3>
+                <p>高效客户关系管理，帮助你提升业务增长</p>
+            </div>
+        </div>
+
+        <div class="scene-container" style="display: flex; align-items: center; gap: 10px;">
+            <div style="margin-left: 16px;font-size: 14px;white-space: nowrap;color: #646A73;">场景：</div>
+            <div class="category-tabs">
+                <div class="category-tab active">为你推荐</div>
+                <div class="category-tab">数据分析</div>
+                <div class="category-tab">设计工具</div>
+                <div class="category-tab">代办工具</div>
+                <div class="category-tab">营销分析</div>
+                <div class="category-tab">运营</div>
+                <div class="category-tab">内容管理</div>
+                <div class="category-tab">客户服务</div>
+                <div class="category-tab">客户管理</div>
+                <div class="category-tab">员工入职</div>
+                <div class="category-tab">客服专员</div>
+                <div class="category-tab">研发工具</div>
+            </div>
+            <div style="margin-left: 20px;margin-right: 20px;font-size: 14px;white-space: nowrap;display:inline-flex;align-items:center;gap:2px;color:#646A73;cursor:pointer;">更多筛选<img src="icon_down-small-ccm_outlined.png" alt="展开更多筛选" style="width:16px;height:16px;cursor:pointer;"></div>
+        </div>
+
+        <div class="section-header">
+            <div>
+                <span class="section-title">应用</span>
+                <span class="section-subtitle">｜开箱即用，提升企业效率</span>
+            </div>
+            <div class="view-all">查看全部</div>
+        </div>
+
+        <div class="app-grid">
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon1.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">销售帮</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">销售管理</span>
+                            <span class="app-tag purple">精选</span>
+                        </div>
+                    </div>
+                   
+                   
+                    <div class="app-description">帮你分析销售数据，实现从客户到销售的全流程跟踪，提升销售效率</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                </div>
+
+            </div>
+
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon2.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">排班打卡</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">考勤</span>
+                            <span class="app-tag purple">精选</span>
+                        </div>
+                    </div>
+                    
+                  
+                    <div class="app-description">排班打卡工具为企业提供精准考勤电子打卡服务，兼容Word、PPT、Excel等格式</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                </div>
+
+            </div>
+
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon3.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">ProcessOn作图</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">图表</span>
+                            <span class="app-tag purple">精选</span>
+                        </div>
+                    </div>
+                    <div class="app-description">流程图、思维导图、原型图，企业协同作图平台</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                   
+                </div>
+
+            </div>
+
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon4.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">豆包-智能助手</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">AI</span>
+                        </div>
+                    </div>
+                    <div class="app-description">只需简单下输入，AI助手，帮你快速生成PPT，解决你的问题</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                    
+                </div>
+
+            </div>
+
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon5.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">BOSS管理</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">管理</span>
+                        </div>
+                    </div>
+                    <div class="app-description">财务分析，项目管理，预算管理，实现统一查看管理控制</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                   
+                    
+                </div>
+
+            </div>
+
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon7.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">网络企业邮箱</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">邮件</span>
+                        </div>
+                    </div>
+                    <div class="app-description">从创建账号到创建团队人员的全流程管理，提升销售效率</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                  
+                  
+                </div>
+
+            </div>
+
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon8.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">扫描全能王</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">工具</span>
+                        </div>
+                    </div>
+                    <div class="app-description">智能扫描OCR文档，将图片转换为PDF，手机扫描文件</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                  
+                   
+                </div>
+
+            </div>
+
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon6.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">客户关系管理</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">CRM</span>
+                        </div>
+                    </div>
+                  
+                    <div class="app-description">智能扫描OCR文档，将图片转换为PDF，手机扫描文件</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                   
+                   
+                </div>
+
+            </div>
+
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon1.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">销售管理</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">CRM</span>
+                           
+                        </div>
+                    </div>
+                    <div class="app-description">从创建账号到创建团队人员的全流程管理，提升销售效率</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                  
+                </div>
+            </div>
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon2.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">销售管理</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">CRM</span>
+                            
+                        </div>
+                    </div>
+                    <div class="app-description">从创建账号到创建团队人员的全流程管理，提升销售效率</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                  
+                </div>
+            </div>
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon3.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">销售管理CRM</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">CRM</span>
+                        
+                        </div>
+                    </div>
+                    <div class="app-description">从创建账号到创建团队人员的全流程管理，提升销售效率</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                   
+                </div>
+            </div>
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon4.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">销售管理</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">CRM</span>
+                          
+                        </div>
+                    </div>
+                    <div class="app-description">从创建账号到创建团队人员的全流程管理，提升销售效率</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                   
+                </div>
+            </div>
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon5.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">销售管理CRM</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">CRM</span>
+                           
+                        </div>
+                    </div>
+                    <div class="app-description">从创建账号到创建团队人员的全流程管理，提升销售效率</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                   
+                </div>
+            </div>
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon6.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">销售管理</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">CRM</span>
+                           
+                        </div>
+                    </div>
+                    <div class="app-description">从创建账号到创建团队人员的全流程管理，提升销售效率</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                   
+                </div>
+            </div>
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon7.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">销售管理</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">CRM</span>
+                           
+                        </div>
+                    </div>
+                    <div class="app-description">从创建账号到创建团队人员的全流程管理，提升销售效率</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                    
+                </div>
+            </div>
+            <div class="app-card">
+                <div class="app-top-row">
+                    <div class="app-icon"><img src="应用 icon8.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;"></div>
+                    <div class="app-action">
+                        <a href="#" class="app-button">免费咨询</a>
+                    </div>
+                </div>
+                <div class="app-info">
+                    <div class="app-header">
+                        <div class="app-name">销售管理</div>
+                        <div class="app-tags">
+                            <span class="app-tag blue">CRM</span>
+                           
+                        </div>
+                    </div>
+                    <div class="app-description">从创建账号到创建团队人员的全流程管理，提升销售效率</div>
+                    <div class="app-meta">上架3年｜服务300+客户｜34万次安装</div>
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <div><span class="section-title">解决方案</span><span class="section-subtitle">｜量身定制，助力企业数字化转型</span></div>
+            <div class="view-all">查看全部</div>
+        </div>
+
+        <div class="card-grid">
+             <div class="card">
+                <div class="card-header">
+                    <div class="card-title-container">
+                        <div class="card-icon"><img src="解决方案6.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"></div>
+                        <div>
+                            <div class="card-title">一站式OA协同管理方案</div>
+                            <div class="card-tags">
+                                <span class="tag">协同办公</span>
+                                <span class="tag">OKR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="consult-btn">免费咨询</a>
+                </div>
+                <div class="card-content">
+                     自动化流程管理平台，一站式解决OA协同管理，项目管理问题，提高效率和协作，帮助企业走向一个更上一层的发展道路和目标
+                 </div>
+                 <div class="card-footer">
+                     <img src="./飞书logo.svg" alt="公司 Logo" class="company-logo">
+                     <span>飞书科技有限公司</span>
+                 </div>
+             </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-container">
+                        <div class="card-icon"><img src="应用 icon2.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"></div>
+                        <div>
+                            <div class="card-title">企业管理解决方案</div>
+                            <div class="card-tags">
+                                <span class="tag">协同办公</span>
+                                <span class="tag">OKR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="consult-btn">免费咨询</a>
+                </div>
+                <div class="card-content">
+                     自动化流程管理平台，一站式解决OA协同管理，项目管理问题，提高效率和协作，帮助企业走向一个更上一层的发展道路和目标
+                 </div>
+                 <div class="card-footer">
+                     <img src="./飞书logo.svg" alt="公司 Logo" class="company-logo">
+                     <span>飞书科技有限公司</span>
+                 </div>
+             </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-container">
+                        <div class="card-icon"><img src="解决方案01.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"></div>
+                        <div>
+                            <div class="card-title">排班打卡方案</div>
+                            <div class="card-tags">
+                                <span class="tag">协同办公</span>
+                                <span class="tag">OKR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="consult-btn">免费咨询</a>
+                </div>
+                <div class="card-content">
+                     自动化流程管理平台，一站式解决OA协同管理，项目管理问题，提高效率和协作，帮助企业走向一个更上一层的发展道路和目标
+                 </div>
+                 <div class="card-footer">
+                     <img src="./飞书logo.svg" alt="公司 Logo" class="company-logo">
+                     
+                     <span>飞书科技有限公司</span>
+                 </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-container">
+                        <div class="card-icon "><img src="解决方案02.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"></div>
+                        <div>
+                            <div class="card-title">账款管理解决方案</div>
+                            <div class="card-tags">
+                                <span class="tag">协同办公</span>
+                                <span class="tag">OKR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="consult-btn">免费咨询</a>
+                </div>
+                <div class="card-content">
+                     自动化流程管理平台，一站式解决OA协同管理，项目管理问题，提高效率和协作，帮助企业走向一个更上一层的发展道路和目标
+                 </div>
+                 <div class="card-footer">
+                     <img src="./飞书logo.svg" alt="公司 Logo" class="company-logo">
+                     <span>飞书科技有限公司</span>
+                 </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-container">
+                        <div class="card-icon"><img src="解决方案03.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"></div>
+                        <div>
+                            <div class="card-title">数据连接器方案</div>
+                            <div class="card-tags">
+                                <span class="tag">协同办公</span>
+                                <span class="tag">OKR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="consult-btn">免费咨询</a>
+                </div>
+                <div class="card-content">
+                     自动化流程管理平台，一站式解决OA协同管理，项目管理问题，提高效率和协作，帮助企业走向一个更上一层的发展道路和目标
+                 </div>
+                 <div class="card-footer">
+                     <img src="./飞书logo.svg" alt="公司 Logo" class="company-logo">
+                     <span>飞书科技有限公司</span>
+                 </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-container">
+                        <div class="card-icon"><img src="解决方案04.png" alt="应用图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"></div>
+                        <div>
+                            <div class="card-title">一站式OA协同管理方案</div>
+                            <div class="card-tags">
+                                <span class="tag">协同办公</span>
+                                <span class="tag">OKR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="consult-btn">免费咨询</a>
+                </div>
+                <div class="card-content">
+                     自动化流程管理平台，一站式解决OA协同管理，项目管理问题，提高效率和协作，帮助企业走向一个更上一层的发展道路和目标
+                 </div>
+                 <div class="card-footer">
+                     <img src="./飞书logo.svg" alt="公司 Logo" class="company-logo">
+                     <span>飞书科技有限公司</span>
+                 </div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <div><span class="section-title">模板</span><span class="section-subtitle">｜敏捷搭建业务系统</span></div>
+            <div class="view-all">查看全部</div>
+        </div>
+
+            <div class="template-grid">
+                <!-- Card 1 (Replaced) -->
+                <div class="template-item">
+                    <div class="template-icon blue-bg">
+                        <img src="模板icon1.png" alt="模板图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 13px;">
+                    </div>
+                    <div class="template-content">
+                        <div class="template-title"><strong>门店排班表</strong> <span class="template-tag">多维表格</span></div>
+                        <div class="template-description">
+                            智能门店排班表系统管理支持灵活班次设置，帮助企业高效达成目标
+                        </div>
+                    </div>
+                    <div class="template-button">
+                        <button class="consult-btn">免费咨询</button>
+                    </div>
+                </div>
+                <div class="template-item">
+                    <div class="template-icon blue-bg">
+                        <img src="模板icon2.png" alt="模板图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 13px;">
+                    </div>
+                    <div class="template-content">
+                        <div class="template-title"><strong>门店排班表</strong> <span class="template-tag">AnyCross</span></div>
+                        <div class="template-description">
+                            智能门店排班表系统管理支持灵活班次设置，帮助高效达成目标
+                        </div>
+                    </div>
+                    <div class="template-button">
+                        <button class="consult-btn">免费咨询</button>
+                    </div>
+                </div>
+                <div class="template-item">
+                    <div class="template-icon blue-bg">
+                        <img src="模板icon3.png" alt="模板图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 13px;">
+                    </div>
+                    <div class="template-content">
+                        <div class="template-title"><strong>门店排班表</strong> <span class="template-tag">插件</span></div>
+                        <div class="template-description">
+                            智能门店排班表系统管理支持灵活班次设置，帮助高效达成目标
+                        </div>
+                    </div>
+                    <div class="template-button">
+                        <button class="consult-btn">免费咨询</button>
+                    </div>
+                </div>
+                <div class="template-item">
+                    <div class="template-icon blue-bg">
+                        <img src="模板icon6.png" alt="模板图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 13px;">
+                    </div>
+                    <div class="template-content">
+                        <div class="template-title"><strong>门店排班表</strong> <span class="template-tag">插件</span></div>
+                        <div class="template-description">
+                            智能门店排班表系统管理支持灵活班次设置，排解难题高效达成目标
+                        </div>
+                    </div>
+                    <div class="template-button">
+                        <button class="consult-btn">免费咨询</button>
+                    </div>
+                </div>
+                <div class="template-item">
+                    <div class="template-icon blue-bg">
+                        <img src="模板icon4.png" alt="模板图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 13px;">
+                    </div>
+                    <div class="template-content">
+                        <div class="template-title"><strong>门店排班表</strong> <span class="template-tag">多维表格</span></div>
+                        <div class="template-description">
+                            智能门店排班表系统管理支持灵活班次设置，高效达成目标
+                        </div>
+                    </div>
+                    <div class="template-button">
+                        <button class="consult-btn">免费咨询</button>
+                    </div>
+                </div>
+                <div class="template-item">
+                    <div class="template-icon blue-bg">
+                        <img src="模板icon5.png" alt="模板图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 13px;">
+                    </div>
+                    <div class="template-content">
+                        <div class="template-title"><strong>门店排班表</strong> <span class="template-tag">插件</span></div>
+                        <div class="template-description">
+                            智能门店排班表系统管理支持灵活班次设置，帮助企业排解难题高效达成目标
+                        </div>
+                    </div>
+                    <div class="template-button">
+                        <button class="consult-btn">免费咨询</button>
+                    </div>
+                </div>
+               
+                <div class="template-item">
+                    <div class="template-icon blue-bg">
+                        <img src="模板icon2.png" alt="模板图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 13px;">
+                    </div>
+                    <div class="template-content">
+                        <div class="template-title"><strong>门店排班表</strong> <span class="template-tag">插件</span></div>
+                        <div class="template-description">
+                            智能门店排班表系统管理支持灵活班次设置，帮助企业排解难题高效达
+                        </div>
+                    </div>
+                    <div class="template-button">
+                        <button class="consult-btn">免费咨询</button>
+                    </div>
+                </div>
+                <div class="template-item">
+                    <div class="template-icon blue-bg">
+                        <img src="模板icon3.png" alt="模板图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 13px;">
+                    </div>
+                    <div class="template-content">
+                        <div class="template-title"><strong>门店排班表</strong> <span class="template-tag">插件</span></div>
+                        <div class="template-description">
+                            智能门店排班表系统管理支持灵活班次设置，帮助企业排解难题高效达成目标
+                        </div>
+                    </div>
+                    <div class="template-button">
+                        <button class="consult-btn">免费咨询</button>
+                    </div>
+                </div>
+                <div class="template-item">
+                    <div class="template-icon blue-bg">
+                        <img src="模板icon2.png" alt="模板图标" style="width: 100%; height: 100%; object-fit: cover; border-radius: 13px;">
+                    </div>
+                    <div class="template-content">
+                        <div class="template-title"><strong>门店排班表</strong> <span class="template-tag">插件</span></div>
+                        <div class="template-description">
+                            智能门店排班表系统管理支持灵活班次设置，帮助企业排解难题高效
+                        </div>
+                    </div>
+                    <div class="template-button">
+                        <button class="consult-btn">免费咨询</button>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+               
+                <!-- Card 3 -->
+                
+            </div>
+    </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const heroH1 = document.querySelector('.hero h1');
+    if (!heroH1) {
+        console.error('Hero H1 element not found.');
+        return;
+    }
+
+    // Setup HTML structure for typing animation
+    heroH1.innerHTML = `<span></span><span id="app-text-target" class="hero-gradient-text"></span><span></span><span class="typing-cursor"></span>`;
+    
+    const textParts = ["发现适合你的 ", "应用", "或解决方案"];
+    const spanElements = [
+        heroH1.childNodes[0],
+        document.getElementById('app-text-target'),
+        heroH1.childNodes[2]
+    ];
+    const cursorElement = heroH1.querySelector('.typing-cursor');
+
+    const typingSpeed = 100; // Milliseconds per character
+    let currentPartIndex = 0;
+    let currentCharIndex = 0;
+
+    function typeEffect() {
+        if (!cursorElement) return; // Safety check
+
+        if (currentPartIndex < textParts.length) {
+            const currentText = textParts[currentPartIndex];
+            const currentSpan = spanElements[currentPartIndex];
+            if (currentCharIndex < currentText.length) {
+                if (currentSpan) currentSpan.textContent += currentText.charAt(currentCharIndex);
+                currentCharIndex++;
+                setTimeout(typeEffect, typingSpeed);
+            } else {
+                currentCharIndex = 0;
+                currentPartIndex++;
+                setTimeout(typeEffect, typingSpeed);
+            }
+        } else {
+            if (cursorElement) cursorElement.style.display = 'none';
+            initializeAppHoverEffect();
+            // Add class to the "或解决方案" span and initialize its hover effect
+            if (spanElements[2]) {
+                spanElements[2].classList.add('solution-hover-trigger');
+                spanElements[2].classList.add('hero-gradient-text'); // Match styling for "解决方案"
+                initializeSolutionHoverEffect(); 
+            }
+        }
+    }
+
+    setTimeout(typeEffect, 200); // Start typing animation with a 0.2s delay
+
+    function initializeAppHoverEffect() {
+        console.log("Typing finished, initializing '应用' hover effect.");
+        const appTextTarget = document.getElementById('app-text-target');
+        const hoverArea = document.getElementById('app-hover-interactive-area');
+        const iconsContainer = document.getElementById('animated-icons-container');
+        
+        if (!appTextTarget || !hoverArea || !iconsContainer) {
+            console.error('Required elements for hover effect not found. Ensure app-text-target, app-hover-interactive-area, and animated-icons-container exist.');
+            return;
+        }
+
+        const iconBaseUrl = './'; // Assuming icons are in the root relative to index.html
+        const iconFiles = [
+            '氛围icon01.png',
+            '氛围icon02.png',
+            '氛围icon03.png',
+            '氛围icon4.png',
+            '氛围icon5.png',
+            '氛围icon6.png'
+        ];
+
+        // Clear any existing icons first (if this function can be called multiple times)
+        iconsContainer.innerHTML = ''; 
+
+        iconFiles.forEach((fileName, index) => {
+            const iconEl = document.createElement('div');
+            iconEl.classList.add('animated-icon');
+            iconEl.style.backgroundImage = `url('${iconBaseUrl}${fileName}')`;
+            if (index < 3) { // Left icons
+                iconEl.classList.add(`left-${index + 1}`);
+            } else { // Right icons
+                iconEl.classList.add(`right-${index - 2}`); // index 3 -> right-1, index 4 -> right-2, etc.
+            }
+            iconsContainer.appendChild(iconEl);
+        });
+
+        const positionElements = () => {
+            const h1Rect = heroH1.getBoundingClientRect(); // Parent for relative positioning context
+            const targetRect = appTextTarget.getBoundingClientRect();
+            
+            // Position hover area directly over appTextTarget, relative to heroH1
+            hoverArea.style.left = `${targetRect.left - h1Rect.left}px`;
+            hoverArea.style.top = `${targetRect.top - h1Rect.top}px`;
+            hoverArea.style.width = `${targetRect.width}px`;
+            hoverArea.style.height = `${targetRect.height}px`;
+
+            // Position icons container: its (0,0) will be at the center of appTextTarget
+            iconsContainer.style.left = `${targetRect.left - h1Rect.left + targetRect.width / 2}px`;
+            iconsContainer.style.top = `${targetRect.top - h1Rect.top + targetRect.height / 2}px`;
+        };
+
+        positionElements();
+        window.addEventListener('resize', positionElements); 
+
+        hoverArea.addEventListener('mouseenter', () => {
+            iconsContainer.classList.add('visible');
+            const icons = iconsContainer.querySelectorAll('.animated-icon');
+            const spreadDistance = 100; // How far icons spread out from the center
+            const angleOffset = 35; // Angle separation for icons on each side
+
+            icons.forEach(icon => {
+                let angleDeg, currentDistance = spreadDistance;
+                let rotationAngle = 0; // Initialize rotation angle
+
+                // Left icons
+                if (icon.classList.contains('left-1')) {
+                    angleDeg = 180 - angleOffset;
+                    currentDistance *= 0.9;
+                    rotationAngle = -15; // Specific rotation
+                } else if (icon.classList.contains('left-2')) {
+                    angleDeg = 180;
+                    rotationAngle = -30; // Specific rotation
+                } else if (icon.classList.contains('left-3')) {
+                    angleDeg = 180 + angleOffset;
+                    currentDistance *= 0.9;
+                    rotationAngle = -45; // Specific rotation
+                }
+                // Right icons
+                else if (icon.classList.contains('right-1')) {
+                    angleDeg = angleOffset;
+                    currentDistance *= 0.9;
+                    rotationAngle = 15; // Specific rotation
+                } else if (icon.classList.contains('right-2')) {
+                    angleDeg = 0;
+                    rotationAngle = 30; // Specific rotation
+                } else if (icon.classList.contains('right-3')) {
+                    angleDeg = -angleOffset;
+                    currentDistance *= 0.9;
+                    rotationAngle = 45; // Specific rotation
+                } else {
+                    return; // Should not happen if classes are correctly assigned
+                }
+
+                const x = Math.cos(angleDeg * Math.PI / 180) * currentDistance;
+                const y = Math.sin(angleDeg * Math.PI / 180) * currentDistance;
+
+                icon.style.opacity = '1';
+                // Apply centering, then spread, then scale and rotate
+                icon.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) scale(1) rotate(${rotationAngle}deg)`;
+            });
+        });
+
+        hoverArea.addEventListener('mouseleave', () => {
+            iconsContainer.classList.remove('visible');
+            const icons = iconsContainer.querySelectorAll('.animated-icon');
+            icons.forEach(icon => {
+                // Reset to initial state for animation (as defined in CSS)
+                icon.style.opacity = '0';
+                icon.style.transform = 'translate(-50%, -50%) scale(0.5) rotate(0deg)'; 
+            });
+        });
+    }
+
+    function initializeSolutionHoverEffect() {
+        const solutionTextWrapper = document.getElementById('solutionImageHoverTrigger');
+        const solutionAtmosphere1 = document.querySelector('.solution01-atmosphere-new-container');
+        const solutionAtmosphere2 = document.querySelector('.new-solution-atmosphere-container');
+        const solutionAtmosphere3 = document.querySelector('.solution-03-atmosphere-container');
+
+        if (solutionTextWrapper && solutionAtmosphere1 && solutionAtmosphere2 && solutionAtmosphere3) {
+            solutionTextWrapper.addEventListener('mouseover', function() {
+                solutionAtmosphere1.style.opacity = '1';
+                solutionAtmosphere1.style.transform = 'translate(9px, 0px) rotate(3deg)';
+                solutionAtmosphere2.style.opacity = '1';
+                solutionAtmosphere2.style.transform = 'translate(-14px, -4px) rotate(-9deg)';
+                solutionAtmosphere3.style.opacity = '1';
+                solutionAtmosphere3.style.transform = 'translate(14px, 4px) rotate(9deg)';
+            });
+
+            solutionTextWrapper.addEventListener('mouseout', function() {
+                solutionAtmosphere1.style.opacity = '0';
+                solutionAtmosphere1.style.transform = 'translate(0px, 0px) rotate(0deg)';
+                solutionAtmosphere2.style.opacity = '0';
+                solutionAtmosphere2.style.transform = 'translate(0px, 0px) rotate(0deg)';
+                solutionAtmosphere3.style.opacity = '0';
+                solutionAtmosphere3.style.transform = 'translate(0px, 0px) rotate(0deg)';
+            });
+        } else {
+            console.error('Required elements for solution hover effect not found. Ensure .solution-hover-trigger, .solution01-atmosphere-new-container, .new-solution-atmosphere-container, and .solution-03-atmosphere-container exist.');
+            if (!solutionTextWrapper) console.error('#solutionImageHoverTrigger not found');
+            if (!solutionAtmosphere1) console.error('.solution01-atmosphere-new-container not found');
+            if (!solutionAtmosphere2) console.error('.new-solution-atmosphere-container not found');
+            if (!solutionAtmosphere3) console.error('.solution-03-atmosphere-container not found');
+        }
+    }
+});
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const elementsToAnimate = document.querySelectorAll('header.header, div.container');
+        elementsToAnimate.forEach((el, index) => {
+            // 设置CSS变量 --animation-delay 来实现交错动画效果
+            el.style.setProperty('--animation-delay', `${index * 0.15}s`);
+            el.classList.add('fade-in-element');
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            const appHoverContainer = document.querySelector('.app-hover-image-container');
+            const solutionHoverContainer = document.querySelector('.solution-hover-image-container');
+
+            if (appHoverContainer) {
+                appHoverContainer.style.opacity = '1';
+            }
+            if (solutionHoverContainer) {
+                solutionHoverContainer.style.opacity = '1';
+            }
+        }, 3800); // 3.8 seconds delay
+    });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const appHoverTrigger = document.getElementById('appHoverTrigger');
+    if (!appHoverTrigger) {
+        console.error('Element with ID "appHoverTrigger" not found.');
+        return;
+    }
+
+    const icons = {
+        icon1: document.querySelector('.atmosphere-icon-container-01'),
+        icon2: document.querySelector('.atmosphere-icon-container-02'),
+        icon3: document.querySelector('.atmosphere-icon-container-03'),
+        icon4: document.querySelector('.atmosphere-icon-container-04'),
+        icon5: document.querySelector('.atmosphere-icon-container-05'),
+        icon6: document.querySelector('.atmosphere-icon-container-06')
+    };
+
+    appHoverTrigger.addEventListener('mouseover', function() {
+        if(icons.icon4) {
+            icons.icon4.style.opacity = '1';
+            icons.icon4.style.transform = 'translate(14px, -15px) rotate(9deg)';
+        }
+        if(icons.icon5) {
+            icons.icon5.style.opacity = '1';
+            icons.icon5.style.transform = 'translate(14px, -15px) rotate(9deg)';
+        }
+        if(icons.icon6) {
+            icons.icon6.style.opacity = '1';
+            icons.icon6.style.transform = 'translate(14px, -15px) rotate(9deg)';
+        }
+
+        if(icons.icon1) {
+            icons.icon1.style.opacity = '1';
+            icons.icon1.style.transform = 'translate(-14px, -15px) rotate(-9deg)';
+        }
+        if(icons.icon2) {
+            icons.icon2.style.opacity = '1';
+            icons.icon2.style.transform = 'translate(-14px, -15px) rotate(-9deg)';
+        }
+        if(icons.icon3) {
+            icons.icon3.style.opacity = '1';
+            icons.icon3.style.transform = 'translate(-14px, -15px) rotate(-9deg)';
+        }
+    });
+
+    appHoverTrigger.addEventListener('mouseout', function() {
+        for (const key in icons) {
+            if (icons[key]) {
+                icons[key].style.opacity = '0';
+                icons[key].style.transform = 'translate(0, 0) rotate(0deg)';
+            }
+        }
+    });
+});
+</script>
+    <div class="solution01-atmosphere-new-container">
+        <img src="./解决方案01氛围.png" alt="解决方案01氛围图">
+    </div>
+</body>
+</html>
